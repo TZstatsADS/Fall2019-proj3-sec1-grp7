@@ -8,11 +8,13 @@ Term: Fall 2019
 
 + Team ##
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ Cao, Rui rc3208@columbia.edu
+
+	+ Chen, Luyue lc3363@columbia.edu
+
+	+ Dai, Tong td2602@columbia.edu
+
+	+ Weiss, Daniel dmw2180@columbia.edu
 
 + Project summary: In this project, we created a classification engine for facial emotion recognition. 
 	
