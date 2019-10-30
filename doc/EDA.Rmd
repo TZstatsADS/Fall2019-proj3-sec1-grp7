@@ -1,0 +1,95 @@
+---
+title: "EDA"
+output: html_notebook
+---
+
+
+```{r}
+info %>% 
+  group_by(emotion_cat)%>% 
+  summarise(rate = n())%>%
+  arrange(desc(rate)) %>%
+  slice(1:10) %>%
+  ggplot(., aes(x= reorder(emotion_cat, rate), y=rate)) +
+  geom_bar(stat='identity', fill="#1CCCC6") + 
+  ylab("Tree Count") + xlab ("") + 
+  ggtitle("Top 10 Emotions") + 
+  coord_flip()
+```
+
+```{r}
+
+info %>% 
+  group_by(type)%>% 
+  summarise(share = n() / nrow(info) * 100)%>%
+  ggplot(., aes(x= "", y=share, fill = type)) +
+  
+  geom_bar(width = 1, size = 1, color = "white", stat = "identity") +
+    coord_polar("y") +
+    geom_text(aes(label = paste0(round(share), "")), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = NULL, y = NULL, fill = NULL, 
+         title = "Distribution of Emotions within Type (%)") +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    scale_fill_manual(values = c("#ffd700", "#bcbcbc", "#ffa500", "#254290")) +
+    theme_classic() +
+    theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5, color = "#666666"))
+
+```
+
+
+```{r}
+info %>% 
+  group_by(emotion_cat)%>% 
+  summarise(share = n() / nrow(info) * 100)%>%
+  ggplot(., aes(x= "", y=share, fill = emotion_cat)) +
+  geom_bar(width = 0.2, size = 0.2, color = "white", stat = "identity") +
+    coord_polar("y") +
+    geom_text(aes(label = ""), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = NULL, y = NULL, fill = NULL, 
+         title = "Overall Emotion Distribution") +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    theme_classic() +
+    theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5, color = "#666666"))
+
+
+```
+
+
+```{r}
+info %>% 
+  group_by(emotion_cat, type)%>% 
+  summarise(share = n() / nrow(info) * 100)%>%
+  ggplot(., aes(x= "", y=share, fill = emotion_cat)) +
+  geom_bar(width = 0.2, size = 0.2, color = "white", stat = "identity") +
+    coord_polar("y") +
+    geom_text(aes(label = ""), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = NULL, y = NULL, fill = NULL, 
+         title = "Emotion Distribution Across Types") +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    theme_classic() +
+    theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5, color = "#666666"))+
+  facet_wrap(~type)
+
+```
+
+
+
+
+
+
+
+
+
+
