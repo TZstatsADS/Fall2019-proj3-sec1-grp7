@@ -19,8 +19,8 @@ Term: Fall 2019
 + Project summary: In this project, we created a classification engine for facial emotion recognition. 
 	
 **Contribution statement**: 
- 	+ Rui trained Neural Network Model and GBM baseline model and implement feature selection and test function. 
-	+ Luyue trained Xgboost, Support Vector Machine model and Linear Discriminant Analysis model, implement main function. 
+ 	+ Rui trained Neural Network Model and GBM baseline model and implement feature selection and test function	
+	+ Luyue trained Xgboost, Support Vector Machine model and Linear Discriminant Analysis model, implement main function
 	+ Tong contributed to data EDA, trained Support Vector Machine model 
 	+ Daniel trained Xgboost as well and as presentator 
 
